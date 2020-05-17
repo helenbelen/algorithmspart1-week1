@@ -18,6 +18,7 @@
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdDraw;
+import edu.princeton.cs.algs4.StdOut;
 
 import java.awt.Font;
 
@@ -76,6 +77,9 @@ public class PercolationVisualizer {
         while (!in.isEmpty()) {
             int i = in.readInt();
             int j = in.readInt();
+            if (i == 5 && j == 7) {
+                StdOut.println("hey");
+            }
             perc.open(i, j);
             draw(perc, n);
             StdDraw.show();
