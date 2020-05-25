@@ -10,52 +10,57 @@ import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
     private double[] results;
-    private Percolation p;
-    private int N;
+    private final int totalNumberOfItems;
+    private double mean;
+    private double std;
+    private static final double CONFIDENCE_95 = 1.96;
     public PercolationStats(int n, int trials) {
         validate(n);
         validate(trials);
-        N = n * n;
+        totalNumberOfItems = n * n;
         results = new double[trials];
-        for(int i = 0; i < trials; i++) {
-            this.runTrial(n, i);
+        for (int i = 0; i < trials; i++) {
+            Percolation p = new Percolation(n);
+            this.runTrial(p, n, i);
         }
     }
 
     public double mean() {
-        return StdStats.mean(results);
+        mean = StdStats.mean(results);
+        return mean;
     }
 
     public double stddev() {
-        return StdStats.stddev(results);
+        std = StdStats.stddev(results);
+        return std;
     }
 
     public double confidenceLo() {
-        return mean() - (1.96*(stddev()/Math.sqrt(results.length)));
+        return mean - ((CONFIDENCE_95 * std)/ Math.sqrt(results.length));
     }
 
     public double confidenceHi() {
-        return mean() + (1.960*(stddev()/Math.sqrt(results.length)));
+        return mean + ((CONFIDENCE_95 * std) / Math.sqrt(results.length));
     }
 
-    private int getRandomNumberToOpen(int n) {
-        return StdRandom.uniform(n*n);
+    private int getRandomCoordinates(int n) {
+        return StdRandom.uniform(1,n + 1);
     }
 
-    private int getRandomCoordinate(int n) {
-        return StdRandom.uniform(n);
-    }
+    private void runTrial(Percolation p, int n, int trialNumber) {
+       while (true) {
+           int randomRow = getRandomCoordinates(n);
+           int randomCol = getRandomCoordinates(n);
+           if (!p.isOpen(randomRow, randomCol)) {
+               p.open(randomRow, randomCol);
+               if (p.percolates()) {
+                   double perc = (double) p.numberOfOpenSites() / totalNumberOfItems;
+                   results[trialNumber] = perc;
+                   break;
+               }
+           }
+       }
 
-    private void runTrial(int n, int trialNumber) {
-        p = new Percolation(n);
-        int trialOpen = getRandomNumberToOpen(n);
-        for (int i = 0; i < trialOpen; i++){
-            p.open(getRandomCoordinate(n), getRandomCoordinate(n));
-            if (p.percolates()) {
-                double perc = (double) p.numberOfOpenSites()/N;
-                results[trialNumber] = perc;
-            }
-        }
     }
 
     private static void validate(int param) {
@@ -70,7 +75,8 @@ public class PercolationStats {
         PercolationStats stats = new PercolationStats(n, trials);
         StdOut.println("mean" + " " + stats.mean());
         StdOut.println("stddev" + " " + stats.stddev());
-        StdOut.println("95% confidence level" + " " + "[" + stats.confidenceLo() + ", " + stats.confidenceHi() + "]");
+        StdOut.println("95% confidence level" + " " + "[" + stats.confidenceLo() + ", " + stats
+                .confidenceHi() + "]");
 
     }
 }

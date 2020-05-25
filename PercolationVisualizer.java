@@ -74,17 +74,23 @@ public class PercolationVisualizer {
         draw(perc, n);
         StdDraw.show();
         StdDraw.pause(DELAY);
+
         while (!in.isEmpty()) {
             int i = in.readInt();
             int j = in.readInt();
-            if (i == 5 && j == 7) {
-                StdOut.println("hey");
-            }
+            // if (i == 5 && j == 2) {
+            //     StdOut.println(i);
+            // }
             perc.open(i, j);
+            if (perc.numberOfOpenSites() == 4){
+                boolean full = perc.isFull(3, 1);
+                StdOut.println(full);
+            }
             draw(perc, n);
             StdDraw.show();
             StdDraw.pause(DELAY);
         }
+        draw(perc, n);
     }
 }
 

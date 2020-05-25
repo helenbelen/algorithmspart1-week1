@@ -4,102 +4,145 @@
  *  Description: Week 1 Assignment - Percolation
  **************************************************************************** */
 
-import edu.princeton.cs.algs4.QuickUnionUF;
+import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
-    private QuickUnionUF quickUnionUF;
+    private WeightedQuickUnionUF quickUnionUF;
+    private WeightedQuickUnionUF quickUnionUFTwo;
+    private byte[] nodes;
     private int virtualTopSite;
     private int virtualBottomSite;
-    private int openNumber;
-    private int size;
-    private int N;
+    private int openSites;
+    private final int size;
+    private final int totalNumberOfSites;
 
     public Percolation(int n) {
+        if (n < 1) throw new IllegalArgumentException();
         size = n;
-        N = (n * n);
-        quickUnionUF = new QuickUnionUF(N + 3);
-        virtualTopSite = N; // equal to index of size +1
-        virtualBottomSite = N + 1; //equl to index of size + 2
-        openNumber =  N + 2; //higher number used to make squares as open if they aren't touching other open squares
+        totalNumberOfSites = n * n;
+        virtualTopSite = totalNumberOfSites;
+        virtualBottomSite = totalNumberOfSites + 1;
+        quickUnionUF = new WeightedQuickUnionUF(totalNumberOfSites + 1);
+        quickUnionUFTwo = new WeightedQuickUnionUF(totalNumberOfSites + 2);
+        nodes = new byte[totalNumberOfSites];
     }
 
     public void open(int row, int col) {
+        if (!isRowColValid(row) || !isRowColValid(col)) throw new IllegalArgumentException();
         int index = getGridIndex(row, col);
-        if (isTopRow(row) && !quickUnionUF.connected(index, virtualTopSite)) {
+
+        if (!isOpen(index)) {
+            setOpen(index);
+            openSites++;
+        }
+
+        if (!isOnLeftEdge(index) && isIndexValid(index - 1) && isOpen(index - 1)) {
+           connectNodes(index - 1, index);
+        }
+        if (!isOnRightEdge(index) && isIndexValid(index + 1) && isOpen(index + 1)) {
+            connectNodes(index + 1, index);
+        }
+        if (isIndexValid(index - size) && isOpen(index - size)) {
+            connectNodes(index - size, index);
+        }
+        if (isIndexValid(index + size) && isOpen(index + size)) {
+            connectNodes(index + size, index);
+
+        }
+        if (isOnTop(index)) {
             quickUnionUF.union(index, virtualTopSite);
+            quickUnionUFTwo.union(index, virtualTopSite);
+            setConnectedToTop(index);
+
         }
-        if (isBottomRow(row) && !quickUnionUF.connected(index, virtualBottomSite)) {
-            quickUnionUF.union(index, virtualBottomSite);
+        if (isOnBottom(index)) {
+            quickUnionUFTwo.union(index, virtualBottomSite);
+            setConnectedToBottom(index);
         }
-        int[] rowAbove = { row - 1, col};
-        int[] rowBelow = { row + 1, col};
-        int[] columnLeft = { row, col - 1 };
-        int[] columnRight = { row, col + 1 };
-        int [][] rowsCols = { rowAbove, rowBelow, columnLeft, columnRight };
-        for(int j = 0; j < 4; j++) {
-            int checkRow = rowsCols[j][0];
-            int checkCol = rowsCols[j][1];
-            if (isRowColValid(checkRow) && isRowColValid(checkCol)) {
-                int checkIndex = getGridIndex(checkRow, checkCol);
-                if (isOpenOrFull(checkIndex) && !quickUnionUF.connected(index, checkIndex)) {
-                    quickUnionUF.union(index, checkIndex);
-                }
-            }
-        }
-        if (!isOpen(row, col)) { //if it's still open, set to higher number
-            quickUnionUF.union(index, openNumber);
-        }
+
     }
 
     public boolean isOpen(int row, int col) {
+        if (!isRowColValid(row) || !isRowColValid(col)) throw new IllegalArgumentException();
         int index = getGridIndex(row, col);
-        int parent = quickUnionUF.find(index);
-        return parent != index;
-
-    }
-
-    private boolean isOpenOrFull(int p) {
-        return quickUnionUF.find(p) != p;
+        return isOpen(index);
     }
 
     public boolean isFull(int row, int col) {
-        int index = getGridIndex(row, col);
-        int parent = quickUnionUF.find(index);
-        if (parent == virtualBottomSite) {
-            return percolates();
-        }
-        return parent != index && (parent == virtualTopSite); // parent will be less that size if it is in the top row
-    }
-
-    private int getGridIndex(int row, int col) {
         if (!isRowColValid(row) || !isRowColValid(col)) throw new IllegalArgumentException();
-        return col + (size * (row - 1)) - 1;
+        int index = getGridIndex(row, col);
+        return isOpen(index) && isNodeFull(index);
+
     }
 
     public int numberOfOpenSites() {
-        return N - (N - quickUnionUF.count());
+        return openSites;
     }
 
     public boolean percolates() {
-        return quickUnionUF.connected(virtualTopSite, virtualBottomSite);
+        return quickUnionUFTwo.connected(virtualTopSite, virtualBottomSite);
+
     }
 
-    private boolean isParamValid(int param) {
-        return param > 0 && param < N;
+    private boolean isNodeFull(int index) {
+        if (nodes[index] == 5) return true;
+        else if (nodes[index] == 7) return true;
+        else if (quickUnionUF.connected(index, virtualTopSite)) return true;
+        return false;
+    }
+
+    private boolean isOpen(int index) {
+        return nodes[index] % 2 != 0;
+    }
+
+    private void setOpen(int index) {
+        int open = 1;
+        int result = nodes[index] | open;
+        nodes[index] = (byte) result;
+    }
+
+    private void setConnectedToTop(int index) {
+        int connected = 4;
+        int result = nodes[index] | connected;
+        nodes[index] = (byte) result;
+    }
+
+    private void setConnectedToBottom(int index) {
+        int connected = 2;
+        int result = nodes[index] | connected;
+        nodes[index] = (byte) result;
+    }
+    private void connectNodes(int indexOne, int indexTwo) {
+        quickUnionUFTwo.union(indexOne, indexTwo);
+        quickUnionUF.union(indexOne, indexTwo);
+    }
+
+    private boolean isOnLeftEdge(int index) {
+        return index == 0 || index % size == 0;
+    }
+
+    private boolean isOnRightEdge(int index) {
+        return (index + 1) % size == 0;
+    }
+    private boolean isOnTop(int index) {
+        return index < size;
+    }
+
+    private boolean isOnBottom(int index) {
+        return index < totalNumberOfSites && index >= totalNumberOfSites - size;
+    }
+
+    private int getGridIndex(int row, int col) {
+        return col + (size * (row - 1)) - 1;
     }
 
     private boolean isRowColValid(int rowCol) {
         return rowCol > 0 && rowCol <= size;
     }
 
-    private boolean isTopRow(int row) {
-        return row == 1;
+    private boolean isIndexValid(int index) {
+        return index >= 0 && index < totalNumberOfSites;
     }
 
-    private boolean isBottomRow(int row) {
-        return row == size;
-    }
-    // public static void main(String[] args) {
-    //
-    // }
+
 }

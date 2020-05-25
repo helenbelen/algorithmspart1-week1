@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1e4f978-b3bd-4ae1-84e9-9e1170bce808" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/OldPercolation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index-check/five.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index-check/four.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index-check/one.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index-check/two.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/report.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Percolation.class" beforeDir="false" afterPath="$PROJECT_DIR$/Percolation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Percolation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Percolation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PercolationStats.class" beforeDir="false" afterPath="$PROJECT_DIR$/PercolationStats.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PercolationStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/PercolationStats.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PercolationVisualizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/PercolationVisualizer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PercolationVisualizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/PercolationVisualizer.java" afterDir="false" />
     </list>
@@ -56,18 +64,40 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="settings.saveactions" />
   </component>
-  <component name="RunManager">
-    <configuration name="PercolationVisualizer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="PercolationVisualizer" />
+  <component name="RunManager" selected="Application.PercolationVisualizer">
+    <configuration name="Percolation" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Percolation" />
       <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="input6.txt" />
+      <option name="PROGRAM_PARAMETERS" value="index-check/four.txt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PercolationStats" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PercolationStats" />
+      <module name="Algorithms, Part I" />
+      <option name="PROGRAM_PARAMETERS" value="2 1000" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PercolationVisualizer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PercolationVisualizer" />
+      <module name="Algorithms, Part I" />
+      <option name="PROGRAM_PARAMETERS" value="input8.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Percolation" />
+      <item itemvalue="Application.PercolationVisualizer" />
+      <item itemvalue="Application.PercolationStats" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.PercolationVisualizer" />
+        <item itemvalue="Application.PercolationStats" />
       </list>
     </recent_temporary>
   </component>
@@ -80,7 +110,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589655245746</updated>
-      <workItem from="1589655249262" duration="27792000" />
+      <workItem from="1589655249262" duration="41306000" />
+      <workItem from="1590262855317" duration="45515000" />
+      <workItem from="1590351249123" duration="12311000" />
     </task>
     <servers />
   </component>
@@ -101,78 +133,108 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="440" y="190" key="#Project_Structure/0.0.1680.1050@0.0.1680.1050" timestamp="1589655570951" />
-    <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589758503824">
+    <state x="529" y="172" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590423900990">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1589758503824" />
-    <state x="603" y="235" key="#xdebugger.evaluate" timestamp="1589757844091">
+    <state x="529" y="172" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1590423900990" />
+    <state x="0" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.955@0.23.1680.955" timestamp="1590278778414" />
+    <state x="53" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590291381956">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="603" y="235" key="#xdebugger.evaluate/0.0.1680.1050@0.0.1680.1050" timestamp="1589757844091" />
-    <state width="1638" height="295" key="GridCell.Tab.0.bottom" timestamp="1589758313006">
+    <state x="53" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1590291381956" />
+    <state x="603" y="235" key="#xdebugger.evaluate" timestamp="1590422354436">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1589758313006" />
-    <state width="1638" height="295" key="GridCell.Tab.0.center" timestamp="1589758313005">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="603" y="235" key="#xdebugger.evaluate/0.0.1680.1050@0.0.1680.1050" timestamp="1590422354436" />
+    <state x="603" y="237" key="#xdebugger.evaluate/0.23.1680.955@0.23.1680.955" timestamp="1590275135269" />
+    <state width="505" height="424" key="DebuggerActiveHint" timestamp="1590273407936">
+      <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1589758313005" />
-    <state width="1638" height="295" key="GridCell.Tab.0.left" timestamp="1589758313004">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="398" height="466" key="DebuggerActiveHint/0.0.1680.1050@0.0.1680.1050" timestamp="1589775085995" />
+    <state width="505" height="424" key="DebuggerActiveHint/0.23.1680.955@0.23.1680.955" timestamp="1590273407936" />
+    <state width="828" height="338" key="GridCell.Tab.0.bottom" timestamp="1590424567622">
+      <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1589758313004" />
-    <state width="1638" height="295" key="GridCell.Tab.0.right" timestamp="1589758313006">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1007" height="423" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1590423903050" />
+    <state width="705" height="363" key="GridCell.Tab.0.bottom/0.0.1680.982@0.0.1680.982" timestamp="1589813144204" />
+    <state width="828" height="338" key="GridCell.Tab.0.bottom/0.23.1680.955@0.23.1680.955" timestamp="1590424567622" />
+    <state width="828" height="338" key="GridCell.Tab.0.center" timestamp="1590424567621">
+      <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1589758313006" />
-    <state width="1638" height="363" key="GridCell.Tab.1.bottom" timestamp="1589758254112">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1007" height="423" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1590423903049" />
+    <state width="705" height="363" key="GridCell.Tab.0.center/0.0.1680.982@0.0.1680.982" timestamp="1589813144203" />
+    <state width="828" height="338" key="GridCell.Tab.0.center/0.23.1680.955@0.23.1680.955" timestamp="1590424567621" />
+    <state width="828" height="338" key="GridCell.Tab.0.left" timestamp="1590424567621">
+      <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="363" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1589758254112" />
-    <state width="1638" height="363" key="GridCell.Tab.1.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1589758134079" />
+    <state width="1007" height="423" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1590423903048" />
+    <state width="705" height="363" key="GridCell.Tab.0.left/0.0.1680.982@0.0.1680.982" timestamp="1589813144202" />
+    <state width="828" height="338" key="GridCell.Tab.0.left/0.23.1680.955@0.23.1680.955" timestamp="1590424567621" />
+    <state width="828" height="338" key="GridCell.Tab.0.right" timestamp="1590424567621">
+      <screen x="0" y="23" width="1680" height="955" />
+    </state>
+    <state width="1007" height="423" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1590423903050" />
+    <state width="705" height="363" key="GridCell.Tab.0.right/0.0.1680.982@0.0.1680.982" timestamp="1589813144204" />
+    <state width="828" height="338" key="GridCell.Tab.0.right/0.23.1680.955@0.23.1680.955" timestamp="1590424567621" />
+    <state width="1007" height="423" key="GridCell.Tab.1.bottom" timestamp="1590424567617">
+      <screen x="0" y="23" width="1680" height="955" />
+    </state>
+    <state width="1007" height="423" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1590423903053" />
+    <state width="705" height="363" key="GridCell.Tab.1.bottom/0.0.1680.982@0.0.1680.982" timestamp="1589813144208" />
+    <state width="1638" height="363" key="GridCell.Tab.1.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1589773830813" />
+    <state width="1007" height="423" key="GridCell.Tab.1.bottom/0.23.1680.955@0.23.1680.955" timestamp="1590424567617" />
     <state width="1638" height="363" key="GridCell.Tab.1.bottom/0.23.1680.959@0.23.1680.959" timestamp="1589743621510" />
-    <state width="1638" height="363" key="GridCell.Tab.1.center" timestamp="1589758254111">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1007" height="423" key="GridCell.Tab.1.center" timestamp="1590424567616">
+      <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="363" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1589758254111" />
-    <state width="1638" height="363" key="GridCell.Tab.1.center/0.23.1680.1027@0.23.1680.1027" timestamp="1589758134078" />
+    <state width="1007" height="423" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1590423903052" />
+    <state width="705" height="363" key="GridCell.Tab.1.center/0.0.1680.982@0.0.1680.982" timestamp="1589813144207" />
+    <state width="1638" height="363" key="GridCell.Tab.1.center/0.23.1680.1027@0.23.1680.1027" timestamp="1589773830811" />
+    <state width="1007" height="423" key="GridCell.Tab.1.center/0.23.1680.955@0.23.1680.955" timestamp="1590424567616" />
     <state width="1638" height="363" key="GridCell.Tab.1.center/0.23.1680.959@0.23.1680.959" timestamp="1589743621509" />
-    <state width="1638" height="363" key="GridCell.Tab.1.left" timestamp="1589758254110">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1007" height="423" key="GridCell.Tab.1.left" timestamp="1590424567616">
+      <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="363" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1589758254110" />
-    <state width="1638" height="363" key="GridCell.Tab.1.left/0.23.1680.1027@0.23.1680.1027" timestamp="1589758134078" />
+    <state width="1007" height="423" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1590423903051" />
+    <state width="705" height="363" key="GridCell.Tab.1.left/0.0.1680.982@0.0.1680.982" timestamp="1589813144206" />
+    <state width="1638" height="363" key="GridCell.Tab.1.left/0.23.1680.1027@0.23.1680.1027" timestamp="1589773830811" />
+    <state width="1007" height="423" key="GridCell.Tab.1.left/0.23.1680.955@0.23.1680.955" timestamp="1590424567616" />
     <state width="1638" height="363" key="GridCell.Tab.1.left/0.23.1680.959@0.23.1680.959" timestamp="1589743621509" />
-    <state width="1638" height="363" key="GridCell.Tab.1.right" timestamp="1589758254111">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state width="1007" height="423" key="GridCell.Tab.1.right" timestamp="1590424567617">
+      <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state width="1638" height="363" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1589758254111" />
-    <state width="1638" height="363" key="GridCell.Tab.1.right/0.23.1680.1027@0.23.1680.1027" timestamp="1589758134079" />
+    <state width="1007" height="423" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1590423903052" />
+    <state width="705" height="363" key="GridCell.Tab.1.right/0.0.1680.982@0.0.1680.982" timestamp="1589813144208" />
+    <state width="1638" height="363" key="GridCell.Tab.1.right/0.23.1680.1027@0.23.1680.1027" timestamp="1589773830812" />
+    <state width="1007" height="423" key="GridCell.Tab.1.right/0.23.1680.955@0.23.1680.955" timestamp="1590424567617" />
     <state width="1638" height="363" key="GridCell.Tab.1.right/0.23.1680.959@0.23.1680.959" timestamp="1589743621510" />
-    <state x="519" y="357" key="com.intellij.ide.util.TipDialog" timestamp="1589655250311">
+    <state x="519" y="357" key="com.intellij.ide.util.TipDialog" timestamp="1590351250007">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="519" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1589655250311" />
+    <state x="519" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1590351250007" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/PercolationVisualizer.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="32" />
+          <url>file://$PROJECT_DIR$/PercolationStats.java</url>
+          <option name="timeStamp" value="117" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Percolation.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="34" />
+          <url>file://$PROJECT_DIR$/PercolationVisualizer.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="120" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="quickUnionUF.parent" />
+        <watch expression="((Percolation)this).nodes" custom="Percolation" />
+        <watch expression="bottomSites" language="JAVA" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Percolation$PercolationVisualizer.ic" NAME="PercolationVisualizer Coverage Results" MODIFIED="1590288916082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
